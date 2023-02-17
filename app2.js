@@ -15,7 +15,8 @@ app.get("/",function(req,res) {
     res.render("homepage");
 });
 
-let API_KEY = "c4836733-2371-45ce-96e3-93d936d1a5ca", URL = "https://content.guardianapis.com/search?q=";
+let API_KEY = "";       // get your own API key from https://open-platform.theguardian.com/access/
+let URL = "https://content.guardianapis.com/search?q=";
 
 app.get("/:topic",function(req,res) {
     var articleTitle = [], articleUrl = [];
