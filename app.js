@@ -126,33 +126,3 @@ app.get("/AI",function(req,res) {
 app.listen(3000,function() {
     console.log("Server is running on port 3000.");
 });
-
-/*
-{
-    "response": {
-        "status": "ok",
-        "userTier": "developer",
-        "total": 9324,
-        "startIndex": 1,
-        "pageSize": 10,
-        "currentPage": 1,
-        "pages": 933,
-        "orderBy": "relevance",
-        "results": [
-            {
-                "id": "uk-news/2022/dec/27/walkers-upland-britain-told-not-rely-on-smartphones-rescuers-compass-maps",
-                "type": "article",
-                "sectionId": "lifeandstyle",
-                "sectionName": "Life and style",
-                "webPublicationDate": "2022-12-27T16:12:06Z",
-                "webTitle": "Hill walkers in UK urged not to rely on smartphones",
-                "webUrl": "https://www.theguardian.com/uk-news/2022/dec/27/walkers-upland-britain-told-not-rely-on-smartphones-rescuers-compass-maps",
-                "apiUrl": "https://content.guardianapis.com/uk-news/2022/dec/27/walkers-upland-britain-told-not-rely-on-smartphones-rescuers-compass-maps",
-                "isHosted": false,
-                "pillarId": "pillar/lifestyle",
-                "pillarName": "Lifestyle"
-            }
-        ]
-    }
-}
-*/
