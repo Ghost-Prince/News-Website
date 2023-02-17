@@ -1,0 +1,32 @@
+body {
+    font-family: sans-serif;
+    background-color: #ECF9FF;
+}
+#top-div {
+    text-align: center;
+}
+#programming {
+    height: 200px;
+    width: 160px;
+    border-radius: 100%;
+}
+#smartphones {
+    height: 200px;
+    width: 160px;
+    border-radius: 100%;
+}
+#gaming {
+    height: 200px;
+    width: 160px;
+    border-radius: 100%;
+}
+#AI {
+    height: 200px;
+    width: 160px;
+    border-radius: 100%;
+}
+#laptops {
+    height: 200px;
+    width: 160px;
+    border-radius: 100%;
+}

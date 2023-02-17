@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>News : <%= topicName %></title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="content.css">
+    </head>
+    <body>
+        <div id="top-div">
+            <h1>Here are some latest news articles related to <%= topicName %></h1>
+        </div>
+        <hr>
+        <div>
+            <% for(var index=0; index<articleTitleArray.length; index++) { %>
+                <h4> <%= index+1 %>. <%= articleTitleArray[index] %> </h4>
+                <a href= <%= articleUrlArray[index] %> >Read more</a>
+            <% } %>
+        </div>
+    </body>
+</html>
