@@ -1,0 +1,43 @@
+const express = require("express");
+const https = require("https");
+const bodyParser = require("body-parser");
+const ejs = require("ejs");
+
+const app = express();
+
+app.set("view engine","ejs");
+app.use(express.static("public"));
+app.use(bodyParser.urlencoded({
+    extended : true
+}));
+
+app.get("/",function(req,res) {
+    res.render("homepage");
+});
+
+let API_KEY = "c4836733-2371-45ce-96e3-93d936d1a5ca", URL = "https://content.guardianapis.com/search?q=";
+
+app.get("/:topic",function(req,res) {
+    var articleTitle = [], articleUrl = [];
+    URL+= req.params.topic;
+    URL+= ("&api-key=" + API_KEY);
+    console.log(URL);
+    https.get(URL,function(result) {
+        result.on("data",function(data) {
+            const receivedData = JSON.parse(data);
+            for(var index=0; index<receivedData.response.results.length; index++) {
+                articleTitle.push(receivedData.response.results[index].webTitle);
+                articleUrl.push(receivedData.response.results[index].webUrl);
+            }
+            res.render("content",{
+                topicName : req.params.topic.toUpperCase(),
+                articleTitleArray : articleTitle,
+                articleUrlArray : articleUrl 
+            });
+        });
+    });
+});
+
+app.listen(3000,function() {
+    console.log("Server is running on port 3000.");
+});
