@@ -39,6 +39,27 @@ app.get("/:topic",function(req,res) {
     });
 });
 
+app.post("/search",function(req,res) {
+    let articleTitle = [], articleUrl = [];
+    let tempURL = URL;
+    tempURL+= req.body.searchQuery;
+    tempURL+= ("&api-key=" + API_KEY);
+    https.get(tempURL,function(result) {
+        result.on("data",function(data) {
+            const receivedData = JSON.parse(data);
+            for(var index=0; index<receivedData.response.results.length; index++) {
+                articleTitle.push(receivedData.response.results[index].webTitle);
+                articleUrl.push(receivedData.response.results[index].webUrl);
+            }
+            res.render("content",{
+                topicName : req.body.searchQuery.toUpperCase(),
+                articleTitleArray : articleTitle,
+                articleUrlArray : articleUrl 
+            });
+        });
+    });
+});
+
 app.listen(3000,function() {
     console.log("Server is running on port 3000.");
 });
